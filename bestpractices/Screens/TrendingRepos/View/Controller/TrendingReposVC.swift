@@ -21,6 +21,10 @@ class TrendingReposVC: UIViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.navitionSetup()
+    }
     
 
     /*
@@ -34,3 +38,17 @@ class TrendingReposVC: UIViewController {
     */
 
 }
+
+
+
+
+
+extension TrendingReposVC{
+//MARK :- Helper TO setup View Controller nvigation
+func navitionSetup() {
+    self.title = "Trending"
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "menuright"), style: .plain, target: nil, action: nil)
+}
+}
+
+
