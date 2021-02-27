@@ -26,6 +26,10 @@ class LoadingErrorViewTests: XCTestCase {
         let errorView = RepoLodingErrorView(frame: UIScreen.main.bounds)
         XCTAssert(errorView.retryBtn != nil && errorView.container != nil && errorView.animationView != nil)
     }
+    func testLottieAnimationViewHasAnimation() {
+        let errorView = RepoLodingErrorView(frame: UIScreen.main.bounds)
+        XCTAssert(errorView.animationView?.animation != nil)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
