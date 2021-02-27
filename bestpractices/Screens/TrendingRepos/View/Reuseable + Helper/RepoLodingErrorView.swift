@@ -10,7 +10,7 @@ import Lottie
 
 class RepoLodingErrorView: UIView {
     
-    @IBOutlet weak var retryBtn: UIButton?
+    @IBOutlet private weak var retryBtn: UIButton?
     @IBOutlet private var container: RepoLodingErrorView!
     
     @IBOutlet private weak var animationView: AnimationView?
@@ -25,12 +25,17 @@ class RepoLodingErrorView: UIView {
         super.init(coder: coder)
         loadView()
     }
-   func loadView () {
+  private func loadView () {
     Bundle.main.loadNibNamed("RepoLodingErrorView", owner: self, options: nil)
     container.loadXib(self)
         
     }
     override func layoutSubviews() {
+       animateLottie()
+        setupRetryButton()
+    }
+    
+   private func animateLottie() {
         // 1. Set animation content mode
           
           animationView?.contentMode = .scaleAspectFit
@@ -45,14 +50,14 @@ class RepoLodingErrorView: UIView {
           
           // 4. Play animation
          animationView?.play()
-        setupRetryButton()
+       
     }
-    
-    func setupRetryButton() {
+   private func setupRetryButton() {
         retryBtn?.backgroundColor = .clear
         retryBtn?.layer.cornerRadius = 5
         retryBtn?.layer.borderWidth = 1
-        retryBtn?.layer.borderColor = UIColor.black.cgColor
+    retryBtn?.layer.borderColor = Constants.appPrimaryColor.cgColor
+    retryBtn?.setTitleColor(Constants.appPrimaryColor, for: .normal)
     }
     /*
     // Only override draw() if you perform custom drawing.
