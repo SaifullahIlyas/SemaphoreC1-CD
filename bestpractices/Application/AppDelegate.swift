@@ -22,8 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initApp() {
         window = UIWindow(frame: UIScreen.main.bounds )
+        let navigation  = UINavigationController(rootViewController: TrendingReposVC.init())
         
-        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
+        window?.rootViewController = navigation
         window?.makeKeyAndVisible()
     }
 

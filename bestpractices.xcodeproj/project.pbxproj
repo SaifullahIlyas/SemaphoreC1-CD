@@ -14,6 +14,8 @@
 		2B21B35225E9EDC600EFEF1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B21B35025E9EDC600EFEF1A /* LaunchScreen.storyboard */; };
 		2B21B35D25E9EDC600EFEF1A /* bestpracticesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21B35C25E9EDC600EFEF1A /* bestpracticesTests.swift */; };
 		2B21B36825E9EDC600EFEF1A /* bestpracticesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21B36725E9EDC600EFEF1A /* bestpracticesUITests.swift */; };
+		2B2FDF9325E9F3E400306E0A /* TrendingReposVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */; };
+		2B2FDF9425E9F3E400306E0A /* TrendingReposVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2B21B36325E9EDC600EFEF1A /* bestpracticesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bestpracticesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B21B36725E9EDC600EFEF1A /* bestpracticesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bestpracticesUITests.swift; sourceTree = "<group>"; };
 		2B21B36925E9EDC600EFEF1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposVC.swift; sourceTree = "<group>"; };
+		2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingReposVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 		2B2FDF7425E9F0EA00306E0A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				2B2FDF8125E9F1E600306E0A /* TrendingRepos */,
 				2B21B34625E9EDC300EFEF1A /* ViewController.swift */,
 			);
 			path = Screens;
@@ -163,6 +168,55 @@
 			children = (
 			);
 			path = DataBase;
+			sourceTree = "<group>";
+		};
+		2B2FDF8125E9F1E600306E0A /* TrendingRepos */ = {
+			isa = PBXGroup;
+			children = (
+				2B2FDF8425E9F20D00306E0A /* Presenter */,
+				2B2FDF8225E9F1F900306E0A /* Model */,
+				2B2FDF8325E9F20500306E0A /* View */,
+			);
+			path = TrendingRepos;
+			sourceTree = "<group>";
+		};
+		2B2FDF8225E9F1F900306E0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B2FDF8325E9F20500306E0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B2FDF8625E9F25200306E0A /* Reuseable + Helper */,
+				2B2FDF8525E9F24000306E0A /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B2FDF8425E9F20D00306E0A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2B2FDF8525E9F24000306E0A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */,
+				2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2B2FDF8625E9F25200306E0A /* Reuseable + Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Reuseable + Helper";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B21B35225E9EDC600EFEF1A /* LaunchScreen.storyboard in Resources */,
+				2B2FDF9425E9F3E400306E0A /* TrendingReposVC.xib in Resources */,
 				2B21B34F25E9EDC600EFEF1A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B21B34725E9EDC300EFEF1A /* ViewController.swift in Sources */,
+				2B2FDF9325E9F3E400306E0A /* TrendingReposVC.swift in Sources */,
 				2B21B34325E9EDC300EFEF1A /* AppDelegate.swift in Sources */,
 				2B21B34D25E9EDC300EFEF1A /* bestpractices.xcdatamodeld in Sources */,
 			);
