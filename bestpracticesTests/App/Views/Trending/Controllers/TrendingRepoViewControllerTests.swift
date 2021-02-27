@@ -33,6 +33,16 @@ class TrendingRepoViewControllerTests: XCTestCase {
         vc.loadView()
         XCTAssert(vc.tableView?.numberOfSections == 1)
     }
+    func testtableViewConformsToDelegate() {
+      let vc = TrendingReposVC()
+        vc.loadView()
+        XCTAssert(vc.tableView?.delegate != nil)
+    }
+    func testtableViewConformToDataSource() {
+        let vc = TrendingReposVC()
+        vc.loadView()
+        XCTAssert(vc.tableView?.dataSource != nil)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
