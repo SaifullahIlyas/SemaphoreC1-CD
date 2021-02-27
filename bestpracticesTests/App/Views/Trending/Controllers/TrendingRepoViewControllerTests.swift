@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import bestpractices
+import SkeletonView
 
 class TrendingRepoViewControllerTests: XCTestCase {
 
@@ -43,7 +44,14 @@ class TrendingRepoViewControllerTests: XCTestCase {
         vc.loadView()
         XCTAssert(vc.tableView?.dataSource != nil)
     }
-
+    func testTableViewHaveReuseableCell() {
+     let vc = TrendingReposVC()
+        vc.loadView()
+        let cell = vc.tableView(vc.tableView!, cellForRowAt: IndexPath(row: 0, section: 0)) as? TrendingReposTableViewCell
+                let actualReuseIdentifer = cell?.reuseIdentifier
+                let expectedReuseIdentifier = "TrendingReposTableViewCell"
+                XCTAssertEqual(actualReuseIdentifer, expectedReuseIdentifier)
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
