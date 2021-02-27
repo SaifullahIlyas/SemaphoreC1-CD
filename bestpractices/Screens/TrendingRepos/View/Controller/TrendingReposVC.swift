@@ -22,6 +22,10 @@ class TrendingReposVC: UIViewController {
     lazy var reposcellClass : String = {
         return String((NSStringFromClass(TrendingReposTableViewCell.classForCoder()).split(separator: ".")[1]))
     }()
+    
+    lazy var errorView : RepoLodingErrorView = {
+        return RepoLodingErrorView(frame: self.view.frame)
+    }()
    public init() {
         super.init(nibName: "TrendingReposVC", bundle: nil)
     }
@@ -45,12 +49,15 @@ class TrendingReposVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        DispatchQueue.main.async {
+            self.view.insertSubview(self.errorView, belowSubview: self.tableView!)
+        }
         self.tableView?.showSkeleton()
         self.tableView?.reloadData()
-        let errorView = RepoLodingErrorView(frame: self.view.frame)
+        /*let errorView = RepoLodingErrorView(frame: self.view.frame)
         
         self.view.addSubview(errorView)
-        self.view.bringSubviewToFront(tableView!)
+        self.view.bringSubviewToFront(tableView!)*/
        // self.tableView?.bringSubviewToFront(eeview)
        // UIView.transition(from: tableView!, to: eeview, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
         
@@ -107,7 +114,7 @@ extension TrendingReposVC : UITableViewDelegate,SkeletonTableViewDataSource {
 
 
 extension TrendingReposVC{
-//MARK :- Helper TO setup View Controller nvigation
+//MARK :- Helper TO setup View Controller
 func navitionSetup() {
     self.title = "Trending"
     let barItem = UIBarButtonItem(image: UIImage(named: "menuright"), style: .plain, target: nil, action: nil)
