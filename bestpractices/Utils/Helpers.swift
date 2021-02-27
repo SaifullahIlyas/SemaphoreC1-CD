@@ -8,7 +8,11 @@
 import UIKit
 
 
-extension UIViewController {
+extension UIView {
+    func circleView() {
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = self.frame.height/2
+    }
     
     
 }

@@ -17,6 +17,8 @@
 		2B2FDF9325E9F3E400306E0A /* TrendingReposVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */; };
 		2B2FDF9425E9F3E400306E0A /* TrendingReposVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */; };
 		2B2FDF9925E9F54B00306E0A /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9825E9F54B00306E0A /* Helpers.swift */; };
+		2B2FDFA725E9FAA800306E0A /* TrendingReposTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDFA525E9FAA800306E0A /* TrendingReposTableViewCell.swift */; };
+		2B2FDFA825E9FAA800306E0A /* TrendingReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDFA625E9FAA800306E0A /* TrendingReposTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposVC.swift; sourceTree = "<group>"; };
 		2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingReposVC.xib; sourceTree = "<group>"; };
 		2B2FDF9825E9F54B00306E0A /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		2B2FDFA525E9FAA800306E0A /* TrendingReposTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposTableViewCell.swift; sourceTree = "<group>"; };
+		2B2FDFA625E9FAA800306E0A /* TrendingReposTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingReposTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +222,8 @@
 		2B2FDF8625E9F25200306E0A /* Reuseable + Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2B2FDFA525E9FAA800306E0A /* TrendingReposTableViewCell.swift */,
+				2B2FDFA625E9FAA800306E0A /* TrendingReposTableViewCell.xib */,
 			);
 			path = "Reuseable + Helper";
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 			files = (
 				2B21B35225E9EDC600EFEF1A /* LaunchScreen.storyboard in Resources */,
 				2B2FDF9425E9F3E400306E0A /* TrendingReposVC.xib in Resources */,
+				2B2FDFA825E9FAA800306E0A /* TrendingReposTableViewCell.xib in Resources */,
 				2B21B34F25E9EDC600EFEF1A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B2FDFA725E9FAA800306E0A /* TrendingReposTableViewCell.swift in Sources */,
 				2B21B34725E9EDC300EFEF1A /* ViewController.swift in Sources */,
 				2B2FDF9325E9F3E400306E0A /* TrendingReposVC.swift in Sources */,
 				2B21B34325E9EDC300EFEF1A /* AppDelegate.swift in Sources */,

@@ -8,10 +8,23 @@
 import UIKit
 
 class TrendingReposVC: UIViewController {
+    
 
+    @IBOutlet weak var tableView: UITableView?{
+        didSet{
+            self.setupRepoTableView()
+        }
+    }
+    
+    
+    //MARK:- iVAR
+    lazy var reposcellClass : String = {
+        return String((NSStringFromClass(TrendingReposTableViewCell.classForCoder()).split(separator: ".")[1]))
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+    
         // Do any additional setup after loading the view.
     }
     init() {
@@ -24,8 +37,19 @@ class TrendingReposVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.navitionSetup()
+        
     }
     
+    
+    
+    func setupRepoTableView() {
+        
+        
+        self.tableView?.register(UINib(nibName: reposcellClass, bundle: nil),
+                                 forCellReuseIdentifier: reposcellClass)
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
+    }
 
     /*
     // MARK: - Navigation
@@ -40,6 +64,21 @@ class TrendingReposVC: UIViewController {
 }
 
 
+
+
+extension TrendingReposVC : UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reposcellClass)
+        return cell!
+    }
+    
+    
+    
+}
 
 
 

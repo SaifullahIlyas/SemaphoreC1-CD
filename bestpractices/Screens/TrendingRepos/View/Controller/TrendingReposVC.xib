@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrendingReposVC" customModule="bestpractices" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="b5k-dR-jF9" id="Nx6-42-7q8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
