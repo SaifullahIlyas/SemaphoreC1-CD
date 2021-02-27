@@ -11,7 +11,10 @@ import SkeletonView
 
 class TrendingRepoViewControllerTests: XCTestCase {
 
+    var vc : TrendingReposVC? = nil
     override func setUpWithError() throws {
+        vc = TrendingReposVC()
+        vc?.loadView()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -25,29 +28,19 @@ class TrendingRepoViewControllerTests: XCTestCase {
     }
     
     func testOutlestSetupForVC(){
-        let vc = TrendingReposVC()
-        vc.loadView()
-        XCTAssert(vc.tableView != nil)
+        XCTAssert(vc?.tableView != nil)
     }
     func testTableViewHaveOneSection(){
-        let vc = TrendingReposVC()
-        vc.loadView()
-        XCTAssert(vc.tableView?.numberOfSections == 1)
+        XCTAssert(vc?.tableView?.numberOfSections == 1)
     }
     func testtableViewConformsToDelegate() {
-      let vc = TrendingReposVC()
-        vc.loadView()
-        XCTAssert(vc.tableView?.delegate != nil)
+        XCTAssert(vc?.tableView?.delegate != nil)
     }
     func testtableViewConformToDataSource() {
-        let vc = TrendingReposVC()
-        vc.loadView()
-        XCTAssert(vc.tableView?.dataSource != nil)
+        XCTAssert(vc?.tableView?.dataSource != nil)
     }
     func testTableViewHaveReuseableCell() {
-     let vc = TrendingReposVC()
-        vc.loadView()
-        let cell = vc.tableView(vc.tableView!, cellForRowAt: IndexPath(row: 0, section: 0)) as? TrendingReposTableViewCell
+        let cell = vc?.tableView((vc?.tableView!)!, cellForRowAt: IndexPath(row: 0, section: 0)) as? TrendingReposTableViewCell
                 let actualReuseIdentifer = cell?.reuseIdentifier
                 let expectedReuseIdentifier = "TrendingReposTableViewCell"
                 XCTAssertEqual(actualReuseIdentifer, expectedReuseIdentifier)
