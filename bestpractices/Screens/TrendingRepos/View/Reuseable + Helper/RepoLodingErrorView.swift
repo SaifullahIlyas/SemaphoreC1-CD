@@ -10,10 +10,10 @@ import Lottie
 
 class RepoLodingErrorView: UIView {
     
-    @IBOutlet private weak var retryBtn: UIButton?
-    @IBOutlet private var container: RepoLodingErrorView!
+    @IBOutlet  weak var retryBtn: UIButton?
+    @IBOutlet  var container: RepoLodingErrorView!
     
-    @IBOutlet private weak var animationView: AnimationView?
+    @IBOutlet  weak var animationView: AnimationView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -24,6 +24,7 @@
 		2B2FDFC425EA072400306E0A /* RepoLodingErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDFC325EA072400306E0A /* RepoLodingErrorView.xib */; };
 		2B3BAA1325EA354000436171 /* TrendingRepoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3BAA1225EA354000436171 /* TrendingRepoViewControllerTests.swift */; };
 		2B3BAA1D25EAAE2C00436171 /* TrendingRepoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3BAA1C25EAAE2C00436171 /* TrendingRepoViewControllerTests.swift */; };
+		2B3BAA2825EABA0200436171 /* LoadingErrorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3BAA2725EABA0200436171 /* LoadingErrorViewTests.swift */; };
 		2B4874F825EA14380099B073 /* loadingError.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B4874F725EA14380099B073 /* loadingError.json */; };
 		2B4874FD25EA1A340099B073 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4874FC25EA1A340099B073 /* Constants.swift */; };
 		525054D6E7D11CA3BA750EFF /* Pods_bestpracticesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B39CEB024C6D11C1AC0CBF /* Pods_bestpracticesTests.framework */; };
@@ -70,6 +71,7 @@
 		2B2FDFC325EA072400306E0A /* RepoLodingErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoLodingErrorView.xib; sourceTree = "<group>"; };
 		2B3BAA1225EA354000436171 /* TrendingRepoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRepoViewControllerTests.swift; sourceTree = "<group>"; };
 		2B3BAA1C25EAAE2C00436171 /* TrendingRepoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRepoViewControllerTests.swift; sourceTree = "<group>"; };
+		2B3BAA2725EABA0200436171 /* LoadingErrorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingErrorViewTests.swift; sourceTree = "<group>"; };
 		2B4874F725EA14380099B073 /* loadingError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingError.json; sourceTree = "<group>"; };
 		2B4874FC25EA1A340099B073 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3B80D0586B8E5060C8C02498 /* Pods_bestpractices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bestpractices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,6 +324,7 @@
 		2B3BAA1A25EAADE400436171 /* Trending */ = {
 			isa = PBXGroup;
 			children = (
+				2B3BAA2425EAB9B600436171 /* Views */,
 				2B3BAA1B25EAAE0100436171 /* Controllers */,
 			);
 			path = Trending;
@@ -333,6 +336,14 @@
 				2B3BAA1C25EAAE2C00436171 /* TrendingRepoViewControllerTests.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2B3BAA2425EAB9B600436171 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2B3BAA2725EABA0200436171 /* LoadingErrorViewTests.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6F118DF5338B6F15D576DB16 /* Pods */ = {
@@ -614,6 +625,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3BAA2825EABA0200436171 /* LoadingErrorViewTests.swift in Sources */,
 				2B21B35D25E9EDC600EFEF1A /* bestpracticesTests.swift in Sources */,
 				2B3BAA1D25EAAE2C00436171 /* TrendingRepoViewControllerTests.swift in Sources */,
 			);
