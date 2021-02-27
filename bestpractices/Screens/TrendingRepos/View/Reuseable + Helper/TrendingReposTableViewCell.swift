@@ -9,11 +9,7 @@ import UIKit
 
 class TrendingReposTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var repoUserImg: UIImageView?{
-        didSet{
-            self.circleView()
-        }
-    }
+    @IBOutlet weak var repoUserImg: UIImageView?
     
     @IBOutlet weak var repoUser: UILabel?
     
@@ -22,6 +18,7 @@ class TrendingReposTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.repoUserImg?.circleView()
         // Initialization code
     }
 

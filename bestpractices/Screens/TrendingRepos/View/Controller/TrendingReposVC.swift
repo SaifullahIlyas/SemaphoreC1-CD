@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class TrendingReposVC: UIViewController {
     
@@ -21,12 +22,6 @@ class TrendingReposVC: UIViewController {
     lazy var reposcellClass : String = {
         return String((NSStringFromClass(TrendingReposTableViewCell.classForCoder()).split(separator: ".")[1]))
     }()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-    
-        // Do any additional setup after loading the view.
-    }
     init() {
         super.init(nibName: "TrendingReposVC", bundle: nil)
     }
@@ -40,6 +35,20 @@ class TrendingReposVC: UIViewController {
         
     }
     
+    //MARk:- LifeCycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       
+    
+        // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView?.showAnimatedSkeleton()
+        self.tableView?.reloadData()
+    }
+    
     
     
     func setupRepoTableView() {
@@ -47,8 +56,10 @@ class TrendingReposVC: UIViewController {
         
         self.tableView?.register(UINib(nibName: reposcellClass, bundle: nil),
                                  forCellReuseIdentifier: reposcellClass)
+        self.tableView?.isSkeletonable = true
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
+        
     }
 
     /*
