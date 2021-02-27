@@ -22,6 +22,7 @@
 		2B2FDFA825E9FAA800306E0A /* TrendingReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDFA625E9FAA800306E0A /* TrendingReposTableViewCell.xib */; };
 		2B2FDFBF25EA071400306E0A /* RepoLodingErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDFBE25EA071400306E0A /* RepoLodingErrorView.swift */; };
 		2B2FDFC425EA072400306E0A /* RepoLodingErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDFC325EA072400306E0A /* RepoLodingErrorView.xib */; };
+		2B3BAA1325EA354000436171 /* TrendingRepoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3BAA1225EA354000436171 /* TrendingRepoViewControllerTests.swift */; };
 		2B4874F825EA14380099B073 /* loadingError.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B4874F725EA14380099B073 /* loadingError.json */; };
 		2B4874FD25EA1A340099B073 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4874FC25EA1A340099B073 /* Constants.swift */; };
 		525054D6E7D11CA3BA750EFF /* Pods_bestpracticesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B39CEB024C6D11C1AC0CBF /* Pods_bestpracticesTests.framework */; };
@@ -66,6 +67,7 @@
 		2B2FDFA625E9FAA800306E0A /* TrendingReposTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingReposTableViewCell.xib; sourceTree = "<group>"; };
 		2B2FDFBE25EA071400306E0A /* RepoLodingErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoLodingErrorView.swift; sourceTree = "<group>"; };
 		2B2FDFC325EA072400306E0A /* RepoLodingErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoLodingErrorView.xib; sourceTree = "<group>"; };
+		2B3BAA1225EA354000436171 /* TrendingRepoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRepoViewControllerTests.swift; sourceTree = "<group>"; };
 		2B4874F725EA14380099B073 /* loadingError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingError.json; sourceTree = "<group>"; };
 		2B4874FC25EA1A340099B073 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3B80D0586B8E5060C8C02498 /* Pods_bestpractices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bestpractices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 		2B21B36625E9EDC600EFEF1A /* bestpracticesUITests */ = {
 			isa = PBXGroup;
 			children = (
+				2B25E6CD25EA2E9400BC1D96 /* Views */,
 				2B21B36725E9EDC600EFEF1A /* bestpracticesUITests.swift */,
 				2B21B36925E9EDC600EFEF1A /* Info.plist */,
 			);
@@ -169,6 +172,14 @@
 				2B21B34225E9EDC300EFEF1A /* AppDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		2B25E6CD25EA2E9400BC1D96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2B3BAA0225EA341D00436171 /* TrendingRepos */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2B2FDF7425E9F0EA00306E0A /* Screens */ = {
@@ -263,6 +274,30 @@
 				2B21B34E25E9EDC600EFEF1A /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		2B3BAA0225EA341D00436171 /* TrendingRepos */ = {
+			isa = PBXGroup;
+			children = (
+				2B3BAA0425EA343700436171 /* Views */,
+				2B3BAA0325EA342900436171 /* Controller */,
+			);
+			path = TrendingRepos;
+			sourceTree = "<group>";
+		};
+		2B3BAA0325EA342900436171 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B3BAA1225EA354000436171 /* TrendingRepoViewControllerTests.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2B3BAA0425EA343700436171 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6F118DF5338B6F15D576DB16 /* Pods */ = {
@@ -553,6 +588,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B21B36825E9EDC600EFEF1A /* bestpracticesUITests.swift in Sources */,
+				2B3BAA1325EA354000436171 /* TrendingRepoViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

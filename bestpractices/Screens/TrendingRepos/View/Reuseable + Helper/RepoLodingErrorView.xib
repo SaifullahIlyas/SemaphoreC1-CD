@@ -30,6 +30,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oX0-Yz-Io8">
                     <rect key="frame" x="32" y="362" width="256" height="50"/>
+                    <accessibility key="accessibilityConfiguration" identifier="RETRY"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Gs9-oL-0cx"/>
                     </constraints>
@@ -37,12 +38,14 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJV-kz-pRu">
                     <rect key="frame" x="60.5" y="290" width="199.5" height="21"/>
+                    <accessibility key="accessibilityConfiguration" identifier="Something went wrong.."/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An alien is probably blocking your signal." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms8-ZD-xAI">
                     <rect key="frame" x="11.5" y="321" width="297" height="21"/>
+                    <accessibility key="accessibilityConfiguration" identifier="An alien is probably blocking your signal."/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -50,6 +53,9 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <accessibility key="accessibilityConfiguration" identifier="Error">
+                <bool key="isElement" value="YES"/>
+            </accessibility>
             <constraints>
                 <constraint firstItem="EJV-kz-pRu" firstAttribute="centerX" secondItem="3wN-CO-6kF" secondAttribute="centerX" id="0Vh-DK-phj"/>
                 <constraint firstItem="3wN-CO-6kF" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="2ZY-8o-AaY"/>

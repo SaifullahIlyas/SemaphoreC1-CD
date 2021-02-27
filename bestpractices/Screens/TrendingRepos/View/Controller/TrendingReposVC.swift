@@ -22,7 +22,7 @@ class TrendingReposVC: UIViewController {
     lazy var reposcellClass : String = {
         return String((NSStringFromClass(TrendingReposTableViewCell.classForCoder()).split(separator: ".")[1]))
     }()
-    init() {
+   public init() {
         super.init(nibName: "TrendingReposVC", bundle: nil)
     }
     
@@ -47,10 +47,11 @@ class TrendingReposVC: UIViewController {
         super.viewDidAppear(animated)
         self.tableView?.showSkeleton()
         self.tableView?.reloadData()
-        let eeview = RepoLodingErrorView(frame: self.tableView!.frame)
+        let errorView = RepoLodingErrorView(frame: self.view.frame)
         
-       self.tableView?.addSubview(eeview)
-        self.tableView?.bringSubviewToFront(eeview)
+        self.view.addSubview(errorView)
+        self.view.bringSubviewToFront(tableView!)
+       // self.tableView?.bringSubviewToFront(eeview)
        // UIView.transition(from: tableView!, to: eeview, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
         
     }
@@ -109,7 +110,9 @@ extension TrendingReposVC{
 //MARK :- Helper TO setup View Controller nvigation
 func navitionSetup() {
     self.title = "Trending"
-    self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "menuright"), style: .plain, target: nil, action: nil)
+    let barItem = UIBarButtonItem(image: UIImage(named: "menuright"), style: .plain, target: nil, action: nil)
+    barItem.accessibilityIdentifier = "menuright"
+    self.navigationItem.rightBarButtonItem = barItem
 }
 }
 
