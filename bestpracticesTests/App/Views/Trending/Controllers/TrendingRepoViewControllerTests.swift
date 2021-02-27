@@ -45,6 +45,12 @@ class TrendingRepoViewControllerTests: XCTestCase {
                 let expectedReuseIdentifier = "TrendingReposTableViewCell"
                 XCTAssertEqual(actualReuseIdentifer, expectedReuseIdentifier)
     }
+    func testTableViewSkeltonAble() {
+        guard let skeltonAble = vc?.tableView?.isSkeletonable else {
+            return XCTAssertThrowsError("TableView Should be SkeltonAble")
+        }
+        XCTAssert(skeltonAble)
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
