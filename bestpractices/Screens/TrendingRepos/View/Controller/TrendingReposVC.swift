@@ -47,6 +47,10 @@ class TrendingReposVC: UIViewController {
         super.viewDidAppear(animated)
         self.tableView?.showAnimatedSkeleton()
         self.tableView?.reloadData()
+        let eeview = RepoLodingErrorView(frame: self.view.frame)
+        
+        self.view.addSubview(eeview)
+        self.view.bringSubviewToFront(eeview)
     }
     
     
