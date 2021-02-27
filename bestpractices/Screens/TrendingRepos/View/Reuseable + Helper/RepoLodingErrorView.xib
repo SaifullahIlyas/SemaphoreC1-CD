@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -11,21 +11,53 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepoLodingErrorView" customModule="bestpractices" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="3wN-CO-6kF" id="mn8-rM-qsh"/>
                 <outlet property="container" destination="iN0-l3-epB" id="2ny-hh-sdf"/>
+                <outlet property="retryBtn" destination="oX0-Yz-Io8" id="0p4-dg-cKN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wN-CO-6kF" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="32" y="0.0" width="256" height="384"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="3wN-CO-6kF" secondAttribute="height" multiplier="1:1.5" id="sNZ-1D-ek6"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loadingError"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oX0-Yz-Io8">
+                    <rect key="frame" x="32" y="414" width="256" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Gs9-oL-0cx"/>
+                    </constraints>
+                    <state key="normal" title="RETRY"/>
+                </button>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
-            <point key="canvasLocation" x="20" y="90"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="3wN-CO-6kF" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="2ZY-8o-AaY"/>
+                <constraint firstItem="oX0-Yz-Io8" firstAttribute="leading" secondItem="3wN-CO-6kF" secondAttribute="leading" id="CXL-FQ-lEZ"/>
+                <constraint firstItem="3wN-CO-6kF" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.8" id="KJK-26-KGY"/>
+                <constraint firstItem="oX0-Yz-Io8" firstAttribute="trailing" secondItem="3wN-CO-6kF" secondAttribute="trailing" id="UFB-ym-yte"/>
+                <constraint firstItem="3wN-CO-6kF" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="WLL-uZ-5Zh"/>
+                <constraint firstItem="oX0-Yz-Io8" firstAttribute="top" secondItem="3wN-CO-6kF" secondAttribute="bottom" constant="30" id="WnT-4Y-MyU"/>
+            </constraints>
+            <point key="canvasLocation" x="18.840579710144929" y="89.732142857142847"/>
         </view>
     </objects>
+    <designables>
+        <designable name="3wN-CO-6kF"/>
+    </designables>
     <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

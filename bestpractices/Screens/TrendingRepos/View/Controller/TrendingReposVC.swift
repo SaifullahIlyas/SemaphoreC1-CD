@@ -45,12 +45,14 @@ class TrendingReposVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tableView?.showAnimatedSkeleton()
+        self.tableView?.showSkeleton()
         self.tableView?.reloadData()
-        let eeview = RepoLodingErrorView(frame: self.view.frame)
+        let eeview = RepoLodingErrorView(frame: self.tableView!.frame)
         
-        self.view.addSubview(eeview)
-        self.view.bringSubviewToFront(eeview)
+       self.tableView?.addSubview(eeview)
+        self.tableView?.bringSubviewToFront(eeview)
+       // UIView.transition(from: tableView!, to: eeview, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
+        
     }
     
     
@@ -81,8 +83,12 @@ class TrendingReposVC: UIViewController {
 
 
 
-extension TrendingReposVC : UITableViewDelegate,UITableViewDataSource {
+extension TrendingReposVC : UITableViewDelegate,SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
@@ -91,7 +97,9 @@ extension TrendingReposVC : UITableViewDelegate,UITableViewDataSource {
         return cell!
     }
     
-    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+    return reposcellClass
+    }
     
 }
 
