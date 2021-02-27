@@ -51,6 +51,13 @@ class TrendingRepoViewControllerTests: XCTestCase {
         }
         XCTAssert(skeltonAble)
     }
+    func testTableCellSketonAble(){
+        guard let tablecell = vc?.tableView?.dequeueReusableCell(withIdentifier: "TrendingReposTableViewCell") as? TrendingReposTableViewCell else {
+           return XCTAssertThrowsError("Table Should Have Trending Repo Cell")
+        }
+        
+        XCTAssert(tablecell.contentView.subviews.allSatisfy(({$0.isSkeletonable})) && tablecell.isSkeletonable)
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
