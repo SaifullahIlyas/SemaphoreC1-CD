@@ -22,32 +22,46 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wN-CO-6kF" customClass="AnimationView" customModule="Lottie">
-                    <rect key="frame" x="32" y="0.0" width="256" height="384"/>
+                    <rect key="frame" x="32" y="30" width="256" height="240"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="3wN-CO-6kF" secondAttribute="height" multiplier="1:1.5" id="sNZ-1D-ek6"/>
-                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loadingError"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oX0-Yz-Io8">
-                    <rect key="frame" x="32" y="414" width="256" height="50"/>
+                    <rect key="frame" x="32" y="362" width="256" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Gs9-oL-0cx"/>
                     </constraints>
                     <state key="normal" title="RETRY"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJV-kz-pRu">
+                    <rect key="frame" x="60.5" y="290" width="199.5" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An alien is probably blocking your signal." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms8-ZD-xAI">
+                    <rect key="frame" x="11.5" y="321" width="297" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="EJV-kz-pRu" firstAttribute="centerX" secondItem="3wN-CO-6kF" secondAttribute="centerX" id="0Vh-DK-phj"/>
                 <constraint firstItem="3wN-CO-6kF" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="2ZY-8o-AaY"/>
+                <constraint firstItem="ms8-ZD-xAI" firstAttribute="centerX" secondItem="EJV-kz-pRu" secondAttribute="centerX" id="4FS-t9-dUP"/>
+                <constraint firstItem="oX0-Yz-Io8" firstAttribute="top" secondItem="ms8-ZD-xAI" secondAttribute="bottom" constant="20" id="9qJ-8M-eTT"/>
                 <constraint firstItem="oX0-Yz-Io8" firstAttribute="leading" secondItem="3wN-CO-6kF" secondAttribute="leading" id="CXL-FQ-lEZ"/>
-                <constraint firstItem="3wN-CO-6kF" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.8" id="KJK-26-KGY"/>
+                <constraint firstItem="ms8-ZD-xAI" firstAttribute="top" secondItem="EJV-kz-pRu" secondAttribute="bottom" constant="10" id="Leo-FH-wUX"/>
+                <constraint firstItem="EJV-kz-pRu" firstAttribute="top" secondItem="3wN-CO-6kF" secondAttribute="bottom" constant="20" id="O1N-Fp-RtD"/>
                 <constraint firstItem="oX0-Yz-Io8" firstAttribute="trailing" secondItem="3wN-CO-6kF" secondAttribute="trailing" id="UFB-ym-yte"/>
+                <constraint firstItem="3wN-CO-6kF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="VzL-SP-yEh"/>
                 <constraint firstItem="3wN-CO-6kF" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="WLL-uZ-5Zh"/>
-                <constraint firstItem="oX0-Yz-Io8" firstAttribute="top" secondItem="3wN-CO-6kF" secondAttribute="bottom" constant="30" id="WnT-4Y-MyU"/>
+                <constraint firstItem="3wN-CO-6kF" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="pDf-K0-imK"/>
             </constraints>
             <point key="canvasLocation" x="18.840579710144929" y="89.732142857142847"/>
         </view>

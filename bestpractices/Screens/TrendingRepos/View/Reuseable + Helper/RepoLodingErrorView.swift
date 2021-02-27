@@ -46,7 +46,7 @@ class RepoLodingErrorView: UIView {
           
           // 3. Adjust animation speed
           
-          animationView?.animationSpeed = 0.5
+    animationView?.animationSpeed = 0.2
           
           // 4. Play animation
          animationView?.play()
