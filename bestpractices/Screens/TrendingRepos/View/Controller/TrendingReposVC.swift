@@ -77,13 +77,16 @@ class TrendingReposVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if dataource.count < 0 {
-        self.tableView?.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: Constants.tableSepratorColor!, secondaryColor: Constants.tableSepratorColor!), animation: nil, transition: .crossDissolve(0.5))
-        self.tableView?.reloadData()
+            self.applySkelton()
         }
         
     }
     
-    
+    //MARK:- Show Skelton  while loading from network
+   private func applySkelton() {
+        self.tableView?.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: Constants.tableSepratorColor!, secondaryColor: Constants.tableSepratorColor!), animation: nil, transition: .crossDissolve(0.5))
+        self.tableView?.reloadData()
+    }
     
     func setupRepoTableView() {
         

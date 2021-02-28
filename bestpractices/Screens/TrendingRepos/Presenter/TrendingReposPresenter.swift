@@ -58,6 +58,11 @@ class TrendingReposPresenter : ParceAble,MapableToViewModel{
             
         })
     }
+    
+    /*MARK:- load from user default(can be from core data) to  resdeuce api consumption.
+     pull to refresh feature is for  desperate users to see trending Repo.Almost all applications reduce api cost from backend by checking periodic update and feed their users through realtime mechanism. let say  I have a credit  card  that  applies some exchange rate and i have api to fectch exchange rate from server that applies some cost. I will call and save response to a period at backend and feed my front end users from server. What for cost if number of client or Front plateform increased in feature i.e multiply By X number
+     */
+    
     public func loadTrendingRepos() {
         if let savedObj = loadTrendingReposFromDefault(){
             self.delegate?.didGotTrendingRepos(data: self.map(model: savedObj) )
