@@ -31,12 +31,12 @@ class TrendingReposVC: UIViewController {
     
     //MARK:- Presenter
     lazy var presenter : TrendingReposPresenter = {
-      return  TrendingReposPresenter.init(delegate: self)
+        return  TrendingReposPresenter.init(delegate: self)
     }()
     lazy var refreshControl : UIRefreshControl = {
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(self.actionPullToRefresh), for: .valueChanged)
-       return control
+        return control
     }()
     
     lazy var dataource : [TrendingReposDataSource] = {
@@ -48,9 +48,10 @@ class TrendingReposVC: UIViewController {
         view.tag = TAGERRORVIEW
         return view
     }()
-    let TAGERRORVIEW = 11111
+   private let TAGERRORVIEW = 11111
+    private let  shimmerAnimationCount = 12
     //MARK:- public intilizer to load view from nib
-   public init() {
+    public init() {
         super.init(nibName: "TrendingReposVC", bundle: nil)
     }
     
@@ -69,21 +70,21 @@ class TrendingReposVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         presenter.loadTrendingRepos()
-    
+        
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if dataource.count < 0 {
+        if dataource.count.lessThanZero {
             self.applySkelton()
         }
         
     }
     
     //MARK:- Show Skelton  while loading from network
-   private func applySkelton() {
+    private func applySkelton() {
         self.tableView?.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: Constants.tableSepratorColor!, secondaryColor: Constants.tableSepratorColor!), animation: nil, transition: .crossDissolve(0.5))
         self.tableView?.reloadData()
     }
@@ -98,16 +99,7 @@ class TrendingReposVC: UIViewController {
         self.tableView?.dataSource = self
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     
     @objc private func actionPullToRefresh() {
         presenter.getTrengingRepos()
@@ -117,7 +109,7 @@ class TrendingReposVC: UIViewController {
         self.view.bringSubviewToFront(self.tableView!)
         presenter.getTrengingRepos()
     }
-
+    
 }
 
 
@@ -125,20 +117,20 @@ class TrendingReposVC: UIViewController {
 
 extension TrendingReposVC : UITableViewDelegate,SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataource.count != 0 ? dataource.count : 12
+        return dataource.count.notZero ? dataource.count : shimmerAnimationCount
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataource.count != 0 ? dataource.count : 12
+        return dataource.count.notZero ? dataource.count : shimmerAnimationCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reposcellClass) as? TrendingReposTableViewCell else {return UITableViewCell()}
         
         //MARK:- Avoid Error while loading shimmer i.e method invoked during shimmer effect
-        if !dataource.isEmpty{
-        cell.repoNameLbl?.text = dataource[indexPath.item].reponame
-        cell.repoUserLbl?.text = dataource[indexPath.item].username
+        if !(dataource.isEmpty){
+            cell.repoNameLbl?.text = dataource[indexPath.item].reponame
+            cell.repoUserLbl?.text = dataource[indexPath.item].username
             if let url = URL(string: dataource[indexPath.item].userImage ?? "") {
                 cell.repoUserImg?.sd_imageTransition = .fade
                 cell.repoUserImg?.sd_imageIndicator = SDWebImageActivityIndicator.gray
@@ -148,7 +140,7 @@ extension TrendingReposVC : UITableViewDelegate,SkeletonTableViewDataSource {
         return cell
     }
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-    return reposcellClass
+        return reposcellClass
     }
     
 }
@@ -156,13 +148,13 @@ extension TrendingReposVC : UITableViewDelegate,SkeletonTableViewDataSource {
 
 
 extension TrendingReposVC{
-//MARK :- Helper TO setup View Controller
-func navitionSetup() {
-    self.title = "Trending"
-    let barItem = UIBarButtonItem(image: UIImage(named: "menuright")?.withRenderingMode(.alwaysOriginal), style: .plain, target: nil, action: nil)
-    barItem.accessibilityIdentifier = "menuright"
-    self.navigationItem.rightBarButtonItem = barItem
-}
+    //MARK :- Helper TO setup View Controller
+    func navitionSetup() {
+        self.title = "Trending"
+        let barItem = UIBarButtonItem(image: UIImage(named: "menuright")?.withRenderingMode(.alwaysOriginal), style: .plain, target: nil, action: nil)
+        barItem.accessibilityIdentifier = "menuright"
+        self.navigationItem.rightBarButtonItem = barItem
+    }
 }
 
 
@@ -175,7 +167,7 @@ extension TrendingReposVC : TrendingReposPresenterDelegate {
             self.refreshControl.endRefreshing()
             self.tableView?.stopSkeletonAnimation()
             self.tableView?.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.05))
-           
+            
         }
     }
     func didGotError() {
@@ -184,7 +176,7 @@ extension TrendingReposVC : TrendingReposPresenterDelegate {
             self.refreshControl.endRefreshing()
             self.view.bringSubviewToFront(self.errorView)
         }
-       
+        
     }
     
     

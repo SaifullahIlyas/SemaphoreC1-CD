@@ -28,7 +28,7 @@ protocol TrendingReposPresenterDelegate : class {
 
 class TrendingReposPresenter : ParceAble,MapableToViewModel{
     //MARK: iVars
-     public let client : Networking?
+    public let client : Networking?
     public weak var delegate: TrendingReposPresenterDelegate?
     
     //MARK: Initializers
@@ -41,14 +41,14 @@ class TrendingReposPresenter : ParceAble,MapableToViewModel{
         client?.get(EndPoints.getAllRepos.description, completion: { [weak self] result in
             switch result{
             case .success(let response):
-             
+                
                 guard let response =  try? self?.parse(data: response.data, Resp: TrendingReposResponse.self) else {
                     self?.delegate?.didGotError()
                     return
                 }
-               self?.saveObjectInDefault(data: response)
-               let data = self?.map(model: response)
-               
+                self?.saveObjectInDefault(data: response)
+                let data = self?.map(model: response)
+                
                 
                 self?.delegate?.didGotTrendingRepos(data: data ?? [])
                 
@@ -76,17 +76,17 @@ class TrendingReposPresenter : ParceAble,MapableToViewModel{
         
         guard let jsonData = try? JSONEncoder().encode(data) else {return}
         UserDefaults.standard.setValue(jsonData, forKey: Constants.cacheName)
-
-
+        
+        
         
         
     }
     private func loadTrendingReposFromDefault()-> TrendingReposResponse?{
         if let saveTrendingRepos = UserDefaults.standard.object(forKey: Constants.cacheName) as? Data {
-        let response =   try? JSONDecoder().decode(TrendingReposResponse.self, from: saveTrendingRepos)
-        return response
+            let response =   try? JSONDecoder().decode(TrendingReposResponse.self, from: saveTrendingRepos)
+            return response
         }
-     return nil
+        return nil
     }
 }
 
@@ -94,6 +94,6 @@ class TrendingReposPresenter : ParceAble,MapableToViewModel{
 extension MapableToViewModel {
     //MARK:- Tranform NetWork Response to appropriate DataSource
     func map(model : TrendingReposResponse) -> [TrendingReposDataSource] {
-        return model.items?.compactMap({TrendingReposDataSource(username: $0.name, reponame: $0.owner?.login, userImage: $0.owner?.image ?? "")}) ?? []
+        return model.items?.compactMap({TrendingReposDataSource(username: $0.name, reponame: $0.owner?.login, userImage: $0.owner?.image)}) ?? []
     }
 }

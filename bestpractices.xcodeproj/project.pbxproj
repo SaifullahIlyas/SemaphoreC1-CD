@@ -31,6 +31,7 @@
 		2B28E1BE25EB6D7A00A6E694 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1BD25EB6D7A00A6E694 /* NetworkTests.swift */; };
 		2B28E1C725EB7F5C00A6E694 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1C625EB7F5C00A6E694 /* NetworkResponse.swift */; };
 		2B28E1CF25EB8C7500A6E694 /* TrendingReposModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1CE25EB8C7500A6E694 /* TrendingReposModel.swift */; };
+		2B28E1EC25EC15A900A6E694 /* FoundationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1EB25EC15A900A6E694 /* FoundationHelper.swift */; };
 		2B2FDF9325E9F3E400306E0A /* TrendingReposVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */; };
 		2B2FDF9425E9F3E400306E0A /* TrendingReposVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */; };
 		2B2FDF9925E9F54B00306E0A /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9825E9F54B00306E0A /* UIHelpers.swift */; };
@@ -95,6 +96,7 @@
 		2B28E1BD25EB6D7A00A6E694 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		2B28E1C625EB7F5C00A6E694 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		2B28E1CE25EB8C7500A6E694 /* TrendingReposModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposModel.swift; sourceTree = "<group>"; };
+		2B28E1EB25EC15A900A6E694 /* FoundationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationHelper.swift; sourceTree = "<group>"; };
 		2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposVC.swift; sourceTree = "<group>"; };
 		2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingReposVC.xib; sourceTree = "<group>"; };
 		2B2FDF9825E9F54B00306E0A /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			children = (
 				2B2FDF9825E9F54B00306E0A /* UIHelpers.swift */,
 				2B4874FC25EA1A340099B073 /* Constants.swift */,
+				2B28E1EB25EC15A900A6E694 /* FoundationHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				2B2FDFA725E9FAA800306E0A /* TrendingReposTableViewCell.swift in Sources */,
 				2B28E19925EB5BBC00A6E694 /* Networking.swift in Sources */,
 				2B28E19425EB5BBC00A6E694 /* Networking+HTTPRequests.swift in Sources */,
+				2B28E1EC25EC15A900A6E694 /* FoundationHelper.swift in Sources */,
 				2B28E19225EB5BBC00A6E694 /* Helpers.swift in Sources */,
 				2B28E19A25EB5BBC00A6E694 /* NetworkingResult.swift in Sources */,
 				2B28E19125EB5BBC00A6E694 /* Networking+Private.swift in Sources */,
