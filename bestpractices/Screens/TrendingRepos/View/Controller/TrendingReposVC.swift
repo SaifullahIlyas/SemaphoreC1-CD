@@ -134,7 +134,7 @@ extension TrendingReposVC : TrendingReposPresenterDelegate {
     }
     
     func didGotError() {
-        
+        self.view.bringSubviewToFront(errorView)
     }
     
     

@@ -11,4 +11,5 @@ class Constants {
     static let backGroundColor = UIColor(named: "backgroundColor")
     static let tableSepratorColor = UIColor(named: "tablesepratorColor")
     static let appidentifier = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String ?? ""
+    static let baseUrl = "https://api.github.com/"
 }

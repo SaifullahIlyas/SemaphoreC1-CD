@@ -12,7 +12,7 @@ enum EndPoints : CustomStringConvertible {
     var description: String {
         switch self {
         case .getAllRepos:
-            return "search/repositories?q=language=+sort:stars"
+            return "/search/repositories?q=language=+sort:stars"
         }
     }
 }
@@ -29,20 +29,19 @@ class TrendingReposPresenter {
     
     //MARK: Initializers
     required init( delegate: TrendingReposPresenterDelegate?) {
-        client = Networking(baseURL: "https://api.github.com/", configuration: .ephemeral, cache: .none)
+        client = Networking(baseURL: Constants.baseUrl, configuration: .ephemeral, cache: .none)
         self.delegate = delegate
     }
     
     func getTrengingRepos() {
-        client?.get(EndPoints.getAllRepos.description, completion: {result in
+        client?.get(EndPoints.getAllRepos.description, completion: { [self]result in
             switch result{
             case .success(let response):
                 
                 print(response.json)
                 break
-            case .failure(let error) :
-                print(error)
-                break
+            case .failure( _) :
+                self.delegate?.didGotError()
             }
             
         })
