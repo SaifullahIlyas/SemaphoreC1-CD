@@ -53,6 +53,7 @@
                     <constraint firstItem="ZHe-Dg-OK1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="KL4-Q4-Ana"/>
                     <constraint firstItem="5cT-iz-E61" firstAttribute="leading" secondItem="ZHe-Dg-OK1" secondAttribute="trailing" constant="20" id="LN7-2m-wzn"/>
                     <constraint firstItem="5cT-iz-E61" firstAttribute="width" relation="greaterThanOrEqual" secondItem="WEO-dN-2dn" secondAttribute="width" multiplier="0.4" id="eIS-FQ-gyG"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5cT-iz-E61" secondAttribute="trailing" constant="10" id="fOq-ak-koX"/>
                     <constraint firstItem="WEO-dN-2dn" firstAttribute="leading" secondItem="5cT-iz-E61" secondAttribute="leading" id="keL-it-EyY"/>
                     <constraint firstAttribute="trailing" secondItem="WEO-dN-2dn" secondAttribute="trailing" constant="20" id="sos-sb-ftW"/>
                     <constraint firstAttribute="bottom" secondItem="WEO-dN-2dn" secondAttribute="bottom" constant="20" id="vM6-Zc-745"/>

@@ -46,7 +46,10 @@ class TrendingReposPresenter : ParceAble,MapableToViewModel{
                     self?.delegate?.didGotError()
                     return
                 }
+               self?.saveObjectInDefault(data: response)
                let data = self?.map(model: response)
+               
+                
                 self?.delegate?.didGotTrendingRepos(data: data ?? [])
                 
             case .failure( _) :
@@ -54,6 +57,31 @@ class TrendingReposPresenter : ParceAble,MapableToViewModel{
             }
             
         })
+    }
+    public func loadTrendingRepos() {
+        if let savedObj = loadTrendingReposFromDefault(){
+            self.delegate?.didGotTrendingRepos(data: self.map(model: savedObj) )
+        }
+        else {
+            self.getTrengingRepos()
+        }
+    }
+    
+    private func saveObjectInDefault(data : TrendingReposResponse){
+        
+        guard let jsonData = try? JSONEncoder().encode(data) else {return}
+        UserDefaults.standard.setValue(jsonData, forKey: Constants.cacheName)
+
+
+        
+        
+    }
+    private func loadTrendingReposFromDefault()-> TrendingReposResponse?{
+        if let saveTrendingRepos = UserDefaults.standard.object(forKey: Constants.cacheName) as? Data {
+        let response =   try? JSONDecoder().decode(TrendingReposResponse.self, from: saveTrendingRepos)
+        return response
+        }
+     return nil
     }
 }
 

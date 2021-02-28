@@ -15,4 +15,5 @@ class Constants {
     static let appidentifier = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String ?? ""
     //MARK:- Utils
     static let baseUrl = "https://api.github.com/"
+    static let cacheName = "CACHEREPOS"
 }

@@ -18,6 +18,7 @@ class TrendingReposVC: UIViewController {
             DispatchQueue.main.async {
                 self.view.insertSubview(self.errorView, belowSubview: self.tableView!)
                 self.errorView.retryTap = self.retyTapped
+                self.tableView?.refreshControl = self.refreshControl
             }
         }
     }
@@ -31,6 +32,11 @@ class TrendingReposVC: UIViewController {
     //MARK:- Presenter
     lazy var presenter : TrendingReposPresenter = {
       return  TrendingReposPresenter.init(delegate: self)
+    }()
+    lazy var refreshControl : UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(self.actionPullToRefresh), for: .valueChanged)
+       return control
     }()
     
     lazy var dataource : [TrendingReposDataSource] = {
@@ -64,14 +70,16 @@ class TrendingReposVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        presenter.getTrengingRepos()
+        presenter.loadTrendingRepos()
     
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if dataource.count < 0 {
         self.tableView?.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: Constants.tableSepratorColor!, secondaryColor: Constants.tableSepratorColor!), animation: nil, transition: .crossDissolve(0.5))
         self.tableView?.reloadData()
+        }
         
     }
     
@@ -98,6 +106,9 @@ class TrendingReposVC: UIViewController {
     }
     */
     
+    @objc private func actionPullToRefresh() {
+        presenter.getTrengingRepos()
+    }
     private func retyTapped() {
         self.tableView?.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: Constants.tableSepratorColor!, secondaryColor: Constants.tableSepratorColor!), animation: nil, transition: .crossDissolve(0.5))
         self.view.bringSubviewToFront(self.tableView!)
@@ -158,6 +169,7 @@ extension TrendingReposVC : TrendingReposPresenterDelegate {
         dataource = data
         //MARK:- Hide Shimmer and reload data in tableview after
         DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
             self.tableView?.stopSkeletonAnimation()
             self.tableView?.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.05))
            
@@ -166,6 +178,7 @@ extension TrendingReposVC : TrendingReposPresenterDelegate {
     func didGotError() {
         
         DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
             self.view.bringSubviewToFront(self.errorView)
         }
        
