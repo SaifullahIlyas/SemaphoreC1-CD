@@ -30,6 +30,7 @@
 		2B28E1A125EB5DDF00A6E694 /* TrendingReposPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1A025EB5DDF00A6E694 /* TrendingReposPresenter.swift */; };
 		2B28E1B825EB68EB00A6E694 /* TrendingReposprenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1B725EB68EB00A6E694 /* TrendingReposprenterTest.swift */; };
 		2B28E1BE25EB6D7A00A6E694 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1BD25EB6D7A00A6E694 /* NetworkTests.swift */; };
+		2B28E1C725EB7F5C00A6E694 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1C625EB7F5C00A6E694 /* NetworkResponse.swift */; };
 		2B2FDF9325E9F3E400306E0A /* TrendingReposVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */; };
 		2B2FDF9425E9F3E400306E0A /* TrendingReposVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */; };
 		2B2FDF9925E9F54B00306E0A /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9825E9F54B00306E0A /* UIHelpers.swift */; };
@@ -93,6 +94,7 @@
 		2B28E1A025EB5DDF00A6E694 /* TrendingReposPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposPresenter.swift; sourceTree = "<group>"; };
 		2B28E1B725EB68EB00A6E694 /* TrendingReposprenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposprenterTest.swift; sourceTree = "<group>"; };
 		2B28E1BD25EB6D7A00A6E694 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		2B28E1C625EB7F5C00A6E694 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposVC.swift; sourceTree = "<group>"; };
 		2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingReposVC.xib; sourceTree = "<group>"; };
 		2B2FDF9825E9F54B00306E0A /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
@@ -234,6 +236,14 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		2B28E1C525EB7F3500A6E694 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				2B28E1C625EB7F5C00A6E694 /* NetworkResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		2B2FDF7425E9F0EA00306E0A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +265,7 @@
 		2B2FDF7925E9F14700306E0A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2B28E1C525EB7F3500A6E694 /* Response */,
 				2B28E18B25EB5BBB00A6E694 /* FakeRequest.swift */,
 				2B28E18F25EB5BBC00A6E694 /* FormDataPart.swift */,
 				2B28E18525EB5BBB00A6E694 /* Helpers.swift */,
@@ -692,6 +703,7 @@
 				2B28E1A125EB5DDF00A6E694 /* TrendingReposPresenter.swift in Sources */,
 				2B28E19725EB5BBC00A6E694 /* FakeRequest.swift in Sources */,
 				2B28E19325EB5BBC00A6E694 /* Image.swift in Sources */,
+				2B28E1C725EB7F5C00A6E694 /* NetworkResponse.swift in Sources */,
 				2B4874FD25EA1A340099B073 /* Constants.swift in Sources */,
 				2B28E19825EB5BBC00A6E694 /* JSON.swift in Sources */,
 			);

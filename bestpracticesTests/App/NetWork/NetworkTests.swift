@@ -9,20 +9,20 @@ import XCTest
 @testable import bestpractices
 
 class NetworkTests: XCTestCase {
-
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
+    
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
@@ -37,9 +37,9 @@ class NetworkTests: XCTestCase {
         Networking(baseURL: Constants.baseUrl, configuration: .ephemeral, cache: .none).get("", completion: {result in
             switch result {
             case .failure(_):
-            XCTFail("Base Url Not Exist")
+                XCTFail("Base Url Not Exist")
             case .success(_):
-            promise.fulfill()
+                promise.fulfill()
             }
             
             
@@ -59,9 +59,9 @@ class NetworkTests: XCTestCase {
         Networking(baseURL: Constants.baseUrl, configuration: .ephemeral, cache: .none).get(EndPoints.getAllRepos.description, completion: {result in
             switch result {
             case .failure(_):
-            XCTFail("Some Thing Went Wrong While Requesting Netwok")
+                XCTFail("Some Thing Went Wrong While Requesting Netwok")
             case .success(_):
-            promise.fulfill()
+                promise.fulfill()
             }
             
             
@@ -76,17 +76,17 @@ class NetworkTests: XCTestCase {
         Networking(baseURL: Constants.baseUrl, configuration: .ephemeral, cache: .none).get(EndPoints.getAllRepos.description, completion: {result in
             switch result {
             case .failure(_):
-            XCTFail("Some Thing Went Wrong While Requesting Netwok")
+                XCTFail("Some Thing Went Wrong While Requesting Netwok")
             case .success(let response):
-             let resp =  try? JSONDecoder().decode(ResposResponse.self, from: response.data)
+                let resp =  try? JSONDecoder().decode(TrendingReposResponse.self, from: response.data)
                 promise.fulfill()
                 guard resp != nil && resp?.items?.count ?? 0 > 0 else {
-                  return  XCTFail("FAIL")
+                    return  XCTFail("FAIL")
                 }
                 
                 
                 
-           
+                
             }
             
             
@@ -96,12 +96,5 @@ class NetworkTests: XCTestCase {
     }
     
     
-
-}
-
-class ResposResponse: Codable {
-    let items : [item]?
-}
-class item : Codable {
-    let name : String?
+    
 }
