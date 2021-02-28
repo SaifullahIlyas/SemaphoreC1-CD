@@ -70,5 +70,38 @@ class NetworkTests: XCTestCase {
         wait(for: [promise], timeout: 10)
         
     }
+    func  testParseJson(){
+        
+        let promise = expectation(description: "Status Code Success")
+        Networking(baseURL: Constants.baseUrl, configuration: .ephemeral, cache: .none).get(EndPoints.getAllRepos.description, completion: {result in
+            switch result {
+            case .failure(_):
+            XCTFail("Some Thing Went Wrong While Requesting Netwok")
+            case .success(let response):
+             let resp =  try? JSONDecoder().decode(ResposResponse.self, from: response.data)
+                promise.fulfill()
+                guard resp != nil && resp?.items?.count ?? 0 > 0 else {
+                  return  XCTFail("FAIL")
+                }
+                
+                
+                
+           
+            }
+            
+            
+        })
+        
+        wait(for: [promise], timeout: 10)
+    }
+    
+    
 
+}
+
+class ResposResponse: Codable {
+    let items : [item]?
+}
+class item : Codable {
+    let name : String?
 }
