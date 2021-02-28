@@ -17,12 +17,16 @@ enum EndPoints : CustomStringConvertible {
     }
 }
 
+
+protocol MapableToViewModel {
+    func map(model : TrendingReposResponse) -> [TrendingReposDataSouce]
+}
 protocol TrendingReposPresenterDelegate : class {
     func  didGotTrendingRepos()
     func didGotError()
 }
 
-class TrendingReposPresenter {
+class TrendingReposPresenter : ParceAble,MapableToViewModel{
     //MARK: iVars
      public let client : Networking?
     public weak var delegate: TrendingReposPresenterDelegate?
@@ -37,13 +41,24 @@ class TrendingReposPresenter {
         client?.get(EndPoints.getAllRepos.description, completion: { [weak self] result in
             switch result{
             case .success(let response):
+             
+                guard let response =  try? self?.parse(data: response.data, Resp: TrendingReposResponse.self) else {
+                    self?.delegate?.didGotError()
+                    return
+                }
+               let model = self?.map(model: response)
                 
-                print(response.json)
-                break
             case .failure( _) :
                 self?.delegate?.didGotError()
             }
             
         })
+    }
+}
+
+
+extension MapableToViewModel {
+    func map(model : TrendingReposResponse) -> [TrendingReposDataSouce] {
+        return model.items?.compactMap({TrendingReposDataSouce(username: $0.name, reponame: $0.owner?.login)}) ?? []
     }
 }

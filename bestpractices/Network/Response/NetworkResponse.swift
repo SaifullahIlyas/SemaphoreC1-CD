@@ -12,7 +12,7 @@ protocol ParceAble {
 }
 
 extension ParceAble {
-    func parse<Resp>(data : Data) throws ->  Resp where Resp : Codable {
+    func parse<T>(data : Data, Resp : T.Type) throws ->  T where T : Decodable  {
       
         return  try JSONDecoder().decode(Resp.self, from: data)
     }
