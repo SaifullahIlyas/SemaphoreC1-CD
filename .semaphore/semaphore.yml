@@ -21,6 +21,7 @@ agent:
     os_image: macos-xcode12
 
 # Blocks are the heart of a pipeline and are executed sequentially. Each block
+
 # has a task that defines one or more parallel jobs. Jobs define commands that
 # should be executed by the pipeline.
 # See https://docs.semaphoreci.com/article/62-concepts
