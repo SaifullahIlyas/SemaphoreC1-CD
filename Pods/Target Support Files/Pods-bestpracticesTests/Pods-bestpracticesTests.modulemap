@@ -1,0 +1,6 @@
+framework module Pods_bestpracticesTests {
+  umbrella header "Pods-bestpracticesTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

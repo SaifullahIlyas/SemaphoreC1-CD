@@ -20,8 +20,8 @@ DerivedData
 !default.xcworkspace
 
 #CocoaPods
-Pods
-Podfile.lock
+#Pods
+#Podfile.lock
 
 #Fastlane 
 fastlane/README.md
