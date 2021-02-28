@@ -32,26 +32,34 @@ let tableIdentifier = "repoTable"
     }
 
     
+    
+    //MARK:- Test To check if view controller has navigation view and subviews
     func testcontrollerNavigation(){
         let app = XCUIApplication()
         XCTAssert(app.navigationBars["Trending"].exists)
         XCTAssert(app.navigationBars.buttons["menuright"].exists)
     }
+    
+    //MARK:- Test To check if  View Controller has Tableview To show Trending Repos
     func testControllerHasReposTable () {
         let app = XCUIApplication()
         XCTAssert(app.tables.matching(identifier: "repoTable").element.firstMatch.exists)
     }
-    func testRepoTableHaveErrorView() {
+    //MARK:- Test To check if View Controller have error view in case while Error Loading Repos
+    func testControllerHaveErrorView() {
         let app = XCUIApplication()
         XCTAssert(app.otherElements["Error"].waitForExistence(timeout: 5))
         
     }
+    //MARK:- Test Tableview Have intial cells to play shimmer effect while loading Repos
     func testRepoTableHaveCellsForShimmer() {
         
         let app = XCUIApplication()
         XCTAssert(app.tables[tableIdentifier].cells.count > 0)
         
     }
+    
+    //MARK:- Test To check if repo table have exactly the repos detail cell to show Info
     func testRepoTableHaveRepoDetailCell() {
         
         let app = XCUIApplication()

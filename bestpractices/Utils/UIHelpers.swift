@@ -13,6 +13,7 @@ extension UIView {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = self.frame.height/2
     }
+    //MARK:- Generic Function to load Xib in view
     func loadXib(_ container: UIView!) -> Void{
             self.translatesAutoresizingMaskIntoConstraints = false;
             self.frame = container.frame;

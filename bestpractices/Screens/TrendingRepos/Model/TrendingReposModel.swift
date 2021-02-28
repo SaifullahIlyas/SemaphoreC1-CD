@@ -7,11 +7,13 @@
 
 import Foundation
 
-class TrendingReposDataSouce {
+class TrendingReposDataSource {
     let username : String?
     let reponame : String?
-    init(username : String?, reponame : String?) {
+    let userImage : String?
+    init(username : String?, reponame : String?,userImage : String?) {
         self.username = username
         self.reponame = reponame
+        self.userImage = userImage
     }
 }

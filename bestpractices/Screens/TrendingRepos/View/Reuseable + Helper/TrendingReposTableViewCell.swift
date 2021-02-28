@@ -18,7 +18,7 @@ class TrendingReposTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //self.repoUserImg?.circleView()
+        self.repoUserImg?.circleView()
         
         // Initialization code
     }

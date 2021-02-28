@@ -7,13 +7,18 @@
 
 import UIKit
 import SkeletonView
+import SDWebImage
 
 class TrendingReposVC: UIViewController {
     
-
     @IBOutlet weak var tableView: UITableView?{
         didSet{
             self.setupRepoTableView()
+            //MARK:- Setup View Hierarcy
+            DispatchQueue.main.async {
+                self.view.insertSubview(self.errorView, belowSubview: self.tableView!)
+                self.errorView.retryTap = self.retyTapped
+            }
         }
     }
     
@@ -28,9 +33,16 @@ class TrendingReposVC: UIViewController {
       return  TrendingReposPresenter.init(delegate: self)
     }()
     
-    lazy var errorView : RepoLodingErrorView = {
-        return RepoLodingErrorView(frame: self.view.frame)
+    lazy var dataource : [TrendingReposDataSource] = {
+        return []
     }()
+    
+    lazy var errorView : RepoLodingErrorView = {
+        let view = RepoLodingErrorView(frame: self.view.frame)
+        view.tag = TAGERRORVIEW
+        return view
+    }()
+    let TAGERRORVIEW = 11111
     //MARK:- public intilizer to load view from nib
    public init() {
         super.init(nibName: "TrendingReposVC", bundle: nil)
@@ -58,10 +70,7 @@ class TrendingReposVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DispatchQueue.main.async {
-            self.view.insertSubview(self.errorView, belowSubview: self.tableView!)
-        }
-        self.tableView?.showAnimatedSkeleton(usingColor: Constants.tableSepratorColor!, animation: SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight), transition: .crossDissolve(0.3))
+        self.tableView?.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: Constants.tableSepratorColor!, secondaryColor: Constants.tableSepratorColor!), animation: nil, transition: .crossDissolve(0.5))
         self.tableView?.reloadData()
         
     }
@@ -88,6 +97,12 @@ class TrendingReposVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func retyTapped() {
+        self.tableView?.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: Constants.tableSepratorColor!, secondaryColor: Constants.tableSepratorColor!), animation: nil, transition: .crossDissolve(0.5))
+        self.view.bringSubviewToFront(self.tableView!)
+        presenter.getTrengingRepos()
+    }
 
 }
 
@@ -96,18 +111,28 @@ class TrendingReposVC: UIViewController {
 
 extension TrendingReposVC : UITableViewDelegate,SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataource.count != 0 ? dataource.count : 12
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataource.count != 0 ? dataource.count : 12
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reposcellClass)
-        return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reposcellClass) as? TrendingReposTableViewCell else {return UITableViewCell()}
+        
+        //MARK:- Avoid Error while loading shimmer i.e method invoked during shimmer effect
+        if !dataource.isEmpty{
+        cell.repoNameLbl?.text = dataource[indexPath.item].reponame
+        cell.repoUserLbl?.text = dataource[indexPath.item].username
+            if let url = URL(string: dataource[indexPath.item].userImage ?? "") {
+                cell.repoUserImg?.sd_imageTransition = .fade
+                cell.repoUserImg?.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                cell.repoUserImg?.sd_setImage(with: url, completed: nil)
+            }
+        }
+        return cell
     }
-    
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
     return reposcellClass
     }
@@ -129,12 +154,21 @@ func navitionSetup() {
 
 
 extension TrendingReposVC : TrendingReposPresenterDelegate {
-    func didGotTrendingRepos() {
-        
+    func didGotTrendingRepos(data: [TrendingReposDataSource]) {
+        dataource = data
+        //MARK:- Hide Shimmer and reload data in tableview after
+        DispatchQueue.main.async {
+            self.tableView?.stopSkeletonAnimation()
+            self.tableView?.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.05))
+           
+        }
     }
-    
     func didGotError() {
-        self.view.bringSubviewToFront(errorView)
+        
+        DispatchQueue.main.async {
+            self.view.bringSubviewToFront(self.errorView)
+        }
+       
     }
     
     

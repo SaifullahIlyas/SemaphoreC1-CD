@@ -7,7 +7,25 @@
 		<key>bestpractices.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2B21B33E25E9EDC300EFEF1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B21B35725E9EDC600EFEF1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B21B36225E9EDC600EFEF1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

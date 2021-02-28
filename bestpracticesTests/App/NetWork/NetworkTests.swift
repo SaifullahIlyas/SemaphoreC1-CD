@@ -29,6 +29,8 @@ class NetworkTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    //MARK:- Test To check if server is reachable or not for api call i.e valid base url
     func testValidUrl() {
         if Constants.baseUrl.isEmpty {
             XCTAssertThrowsError("Base Url Should not be empty")
@@ -47,6 +49,7 @@ class NetworkTests: XCTestCase {
         
         wait(for: [promise], timeout: 10)
     }
+    //MARK:- Test To check if request with baseurl and end point is valid or not
     func testValidRepoRequest() {
         let request = Constants.baseUrl + EndPoints.getAllRepos.description
         XCTAssert(request.trimmingCharacters(in: .whitespaces) == "https://api.github.com/search/repositories?q=language=+sort:stars")
@@ -54,6 +57,7 @@ class NetworkTests: XCTestCase {
         
     }
     
+    //MARK:- Test To check if All get repos request working fine or not
     func testGetAllRepos() {
         let promise = expectation(description: "Status Code Success")
         Networking(baseURL: Constants.baseUrl, configuration: .ephemeral, cache: .none).get(EndPoints.getAllRepos.description, completion: {result in
@@ -70,6 +74,8 @@ class NetworkTests: XCTestCase {
         wait(for: [promise], timeout: 10)
         
     }
+    
+    //MARK:- Request To check if get All repo request response is parceable through codable 
     func  testParseJson(){
         
         let promise = expectation(description: "Status Code Success")

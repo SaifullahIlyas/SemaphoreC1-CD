@@ -11,6 +11,7 @@ protocol ParceAble {
     
 }
 
+//MARK:- Default implementation to parse json in to coadeble
 extension ParceAble {
     func parse<T>(data : Data, Resp : T.Type) throws ->  T where T : Decodable  {
       
@@ -26,5 +27,10 @@ class Item : Codable {
 }
 class Owner : Codable{
     let login : String?
+    let image : String?
+    enum CodingKeys : String, CodingKey {
+        case login
+        case image = "avatar_url"
+    }
 }
 

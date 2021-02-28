@@ -6,6 +6,7 @@ target 'bestpractices' do
   use_frameworks!
  pod 'SkeletonView'
 pod 'lottie-ios'
+pod 'SDWebImage'
   # Pods for bestpractices
 
   target 'bestpracticesTests' do

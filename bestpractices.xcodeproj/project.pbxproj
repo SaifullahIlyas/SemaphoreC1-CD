@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		07F97B7A49F03F217F3017AA /* Pods_bestpractices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80D0586B8E5060C8C02498 /* Pods_bestpractices.framework */; };
 		2B21B34325E9EDC300EFEF1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21B34225E9EDC300EFEF1A /* AppDelegate.swift */; };
-		2B21B34725E9EDC300EFEF1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21B34625E9EDC300EFEF1A /* ViewController.swift */; };
 		2B21B34D25E9EDC300EFEF1A /* bestpractices.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B21B34B25E9EDC300EFEF1A /* bestpractices.xcdatamodeld */; };
 		2B21B34F25E9EDC600EFEF1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B21B34E25E9EDC600EFEF1A /* Assets.xcassets */; };
 		2B21B35225E9EDC600EFEF1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B21B35025E9EDC600EFEF1A /* LaunchScreen.storyboard */; };
@@ -68,7 +67,6 @@
 /* Begin PBXFileReference section */
 		2B21B33F25E9EDC300EFEF1A /* bestpractices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bestpractices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B21B34225E9EDC300EFEF1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2B21B34625E9EDC300EFEF1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B21B34C25E9EDC300EFEF1A /* bestpractices.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bestpractices.xcdatamodel; sourceTree = "<group>"; };
 		2B21B34E25E9EDC600EFEF1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B21B35125E9EDC600EFEF1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				2B2FDF8125E9F1E600306E0A /* TrendingRepos */,
-				2B21B34625E9EDC300EFEF1A /* ViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -692,7 +689,6 @@
 				2B2FDFBF25EA071400306E0A /* RepoLodingErrorView.swift in Sources */,
 				2B2FDFA725E9FAA800306E0A /* TrendingReposTableViewCell.swift in Sources */,
 				2B28E19925EB5BBC00A6E694 /* Networking.swift in Sources */,
-				2B21B34725E9EDC300EFEF1A /* ViewController.swift in Sources */,
 				2B28E19425EB5BBC00A6E694 /* Networking+HTTPRequests.swift in Sources */,
 				2B28E19225EB5BBC00A6E694 /* Helpers.swift in Sources */,
 				2B28E19A25EB5BBC00A6E694 /* NetworkingResult.swift in Sources */,

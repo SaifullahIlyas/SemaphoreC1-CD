@@ -19,10 +19,10 @@ enum EndPoints : CustomStringConvertible {
 
 
 protocol MapableToViewModel {
-    func map(model : TrendingReposResponse) -> [TrendingReposDataSouce]
+    func map(model : TrendingReposResponse) -> [TrendingReposDataSource]
 }
 protocol TrendingReposPresenterDelegate : class {
-    func  didGotTrendingRepos()
+    func  didGotTrendingRepos(data : [TrendingReposDataSource])
     func didGotError()
 }
 
@@ -46,7 +46,8 @@ class TrendingReposPresenter : ParceAble,MapableToViewModel{
                     self?.delegate?.didGotError()
                     return
                 }
-               let model = self?.map(model: response)
+               let data = self?.map(model: response)
+                self?.delegate?.didGotTrendingRepos(data: data ?? [])
                 
             case .failure( _) :
                 self?.delegate?.didGotError()
@@ -58,7 +59,8 @@ class TrendingReposPresenter : ParceAble,MapableToViewModel{
 
 
 extension MapableToViewModel {
-    func map(model : TrendingReposResponse) -> [TrendingReposDataSouce] {
-        return model.items?.compactMap({TrendingReposDataSouce(username: $0.name, reponame: $0.owner?.login)}) ?? []
+    //MARK:- Tranform NetWork Response to appropriate DataSource
+    func map(model : TrendingReposResponse) -> [TrendingReposDataSource] {
+        return model.items?.compactMap({TrendingReposDataSource(username: $0.name, reponame: $0.owner?.login, userImage: $0.owner?.image ?? "")}) ?? []
     }
 }

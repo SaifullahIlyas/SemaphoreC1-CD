@@ -35,6 +35,9 @@
                         <constraint firstAttribute="height" constant="50" id="Gs9-oL-0cx"/>
                     </constraints>
                     <state key="normal" title="RETRY"/>
+                    <connections>
+                        <action selector="retryAction:" destination="-1" eventType="touchUpInside" id="uhe-hh-rQG"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJV-kz-pRu">
                     <rect key="frame" x="60.5" y="290" width="199.5" height="21"/>

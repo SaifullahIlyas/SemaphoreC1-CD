@@ -22,10 +22,12 @@ class LoadingErrorViewTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    //MARK:- Test To check if storyboard outlets have properly connectioned
     func testOutletSetup(){
         let errorView = RepoLodingErrorView(frame: UIScreen.main.bounds)
         XCTAssert(errorView.retryBtn != nil && errorView.container != nil && errorView.animationView != nil)
     }
+    //MARK:- Test to check if lottie have file to play for Loading Error View Test
     func testLottieAnimationViewHasAnimation() {
         let errorView = RepoLodingErrorView(frame: UIScreen.main.bounds)
         XCTAssert(errorView.animationView?.animation != nil)
