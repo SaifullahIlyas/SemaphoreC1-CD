@@ -23,6 +23,11 @@ class TrendingReposVC: UIViewController {
         return String((NSStringFromClass(TrendingReposTableViewCell.classForCoder()).split(separator: ".")[1]))
     }()
     
+    //MARK:- Presenter
+    lazy var presenter : TrendingReposPresenter = {
+      return  TrendingReposPresenter.init(delegate: self)
+    }()
+    
     lazy var errorView : RepoLodingErrorView = {
         return RepoLodingErrorView(frame: self.view.frame)
     }()
@@ -47,6 +52,7 @@ class TrendingReposVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        presenter.getTrengingRepos()
     
         // Do any additional setup after loading the view.
     }
@@ -120,4 +126,17 @@ func navitionSetup() {
 }
 }
 
+
+
+extension TrendingReposVC : TrendingReposPresenterDelegate {
+    func didGotTrendingRepos() {
+        
+    }
+    
+    func didGotError() {
+        
+    }
+    
+    
+}
 

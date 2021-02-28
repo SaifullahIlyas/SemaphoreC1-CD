@@ -7,6 +7,16 @@
 
 import Foundation
 
+enum EndPoints : CustomStringConvertible {
+    case getAllRepos
+    var description: String {
+        switch self {
+        case .getAllRepos:
+            return "search/repositories?q=language=+sort:stars"
+        }
+    }
+}
+
 protocol TrendingReposPresenterDelegate : class {
     func  didGotTrendingRepos()
     func didGotError()
@@ -19,8 +29,22 @@ class TrendingReposPresenter {
     
     //MARK: Initializers
     required init( delegate: TrendingReposPresenterDelegate?) {
-        client = Networking(baseURL: "hi", configuration: .background(withIdentifier: Constants.appidentifier), cache: .none)
+        client = Networking(baseURL: "https://api.github.com/", configuration: .ephemeral, cache: .none)
         self.delegate = delegate
     }
     
+    func getTrengingRepos() {
+        client?.get(EndPoints.getAllRepos.description, completion: {result in
+            switch result{
+            case .success(let response):
+                
+                print(response.json)
+                break
+            case .failure(let error) :
+                print(error)
+                break
+            }
+            
+        })
+    }
 }
