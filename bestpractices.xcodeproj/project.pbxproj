@@ -27,9 +27,10 @@
 		2B28E19A25EB5BBC00A6E694 /* NetworkingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E18E25EB5BBC00A6E694 /* NetworkingResult.swift */; };
 		2B28E19B25EB5BBC00A6E694 /* FormDataPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E18F25EB5BBC00A6E694 /* FormDataPart.swift */; };
 		2B28E19C25EB5BBC00A6E694 /* TestCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E19025EB5BBC00A6E694 /* TestCheck.swift */; };
+		2B28E1A125EB5DDF00A6E694 /* TrendingReposPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28E1A025EB5DDF00A6E694 /* TrendingReposPresenter.swift */; };
 		2B2FDF9325E9F3E400306E0A /* TrendingReposVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */; };
 		2B2FDF9425E9F3E400306E0A /* TrendingReposVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */; };
-		2B2FDF9925E9F54B00306E0A /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9825E9F54B00306E0A /* Helpers.swift */; };
+		2B2FDF9925E9F54B00306E0A /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDF9825E9F54B00306E0A /* UIHelpers.swift */; };
 		2B2FDFA725E9FAA800306E0A /* TrendingReposTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDFA525E9FAA800306E0A /* TrendingReposTableViewCell.swift */; };
 		2B2FDFA825E9FAA800306E0A /* TrendingReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2FDFA625E9FAA800306E0A /* TrendingReposTableViewCell.xib */; };
 		2B2FDFBF25EA071400306E0A /* RepoLodingErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FDFBE25EA071400306E0A /* RepoLodingErrorView.swift */; };
@@ -87,9 +88,10 @@
 		2B28E18E25EB5BBC00A6E694 /* NetworkingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingResult.swift; sourceTree = "<group>"; };
 		2B28E18F25EB5BBC00A6E694 /* FormDataPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataPart.swift; sourceTree = "<group>"; };
 		2B28E19025EB5BBC00A6E694 /* TestCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCheck.swift; sourceTree = "<group>"; };
+		2B28E1A025EB5DDF00A6E694 /* TrendingReposPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposPresenter.swift; sourceTree = "<group>"; };
 		2B2FDF9125E9F3E400306E0A /* TrendingReposVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposVC.swift; sourceTree = "<group>"; };
 		2B2FDF9225E9F3E400306E0A /* TrendingReposVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingReposVC.xib; sourceTree = "<group>"; };
-		2B2FDF9825E9F54B00306E0A /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		2B2FDF9825E9F54B00306E0A /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 		2B2FDFA525E9FAA800306E0A /* TrendingReposTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingReposTableViewCell.swift; sourceTree = "<group>"; };
 		2B2FDFA625E9FAA800306E0A /* TrendingReposTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingReposTableViewCell.xib; sourceTree = "<group>"; };
 		2B2FDFBE25EA071400306E0A /* RepoLodingErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoLodingErrorView.swift; sourceTree = "<group>"; };
@@ -224,7 +226,7 @@
 		2B2FDF7825E9F13E00306E0A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2B2FDF9825E9F54B00306E0A /* Helpers.swift */,
+				2B2FDF9825E9F54B00306E0A /* UIHelpers.swift */,
 				2B4874FC25EA1A340099B073 /* Constants.swift */,
 			);
 			path = Utils;
@@ -286,6 +288,7 @@
 		2B2FDF8425E9F20D00306E0A /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				2B28E1A025EB5DDF00A6E694 /* TrendingReposPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -662,8 +665,9 @@
 				2B28E19625EB5BBC00A6E694 /* NetworkActivityIndicator.swift in Sources */,
 				2B2FDF9325E9F3E400306E0A /* TrendingReposVC.swift in Sources */,
 				2B21B34325E9EDC300EFEF1A /* AppDelegate.swift in Sources */,
-				2B2FDF9925E9F54B00306E0A /* Helpers.swift in Sources */,
+				2B2FDF9925E9F54B00306E0A /* UIHelpers.swift in Sources */,
 				2B21B34D25E9EDC300EFEF1A /* bestpractices.xcdatamodeld in Sources */,
+				2B28E1A125EB5DDF00A6E694 /* TrendingReposPresenter.swift in Sources */,
 				2B28E19725EB5BBC00A6E694 /* FakeRequest.swift in Sources */,
 				2B28E19325EB5BBC00A6E694 /* Image.swift in Sources */,
 				2B4874FD25EA1A340099B073 /* Constants.swift in Sources */,
