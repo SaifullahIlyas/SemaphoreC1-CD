@@ -12,7 +12,7 @@ enum EndPoints : CustomStringConvertible {
     var description: String {
         switch self {
         case .getAllRepos:
-            return "/search/repositories?q=language=+sort:stars"
+            return "search/repositories?q=language=+sort:stars"
         }
     }
 }
