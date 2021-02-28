@@ -24,8 +24,8 @@ protocol TrendingReposPresenterDelegate : class {
 
 class TrendingReposPresenter {
     //MARK: iVars
-    private let client : Networking?
-    private weak var delegate: TrendingReposPresenterDelegate?
+     public let client : Networking?
+    public weak var delegate: TrendingReposPresenterDelegate?
     
     //MARK: Initializers
     required init( delegate: TrendingReposPresenterDelegate?) {
@@ -34,14 +34,14 @@ class TrendingReposPresenter {
     }
     
     func getTrengingRepos() {
-        client?.get(EndPoints.getAllRepos.description, completion: { [self]result in
+        client?.get(EndPoints.getAllRepos.description, completion: { [weak self] result in
             switch result{
             case .success(let response):
                 
                 print(response.json)
                 break
             case .failure( _) :
-                self.delegate?.didGotError()
+                self?.delegate?.didGotError()
             }
             
         })
