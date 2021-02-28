@@ -7,5 +7,7 @@
 
 import UIKit
 class Constants {
-    static let appPrimaryColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+    static let appPrimaryColor = UIColor(named: "primaryColor")
+    static let backGroundColor = UIColor(named: "backgroundColor")
+    static let tableSepratorColor = UIColor(named: "tablesepratorColor")
 }

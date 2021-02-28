@@ -26,6 +26,7 @@ class TrendingReposVC: UIViewController {
     lazy var errorView : RepoLodingErrorView = {
         return RepoLodingErrorView(frame: self.view.frame)
     }()
+    //MARK:- public intilizer to load view from nib
    public init() {
         super.init(nibName: "TrendingReposVC", bundle: nil)
     }
@@ -33,13 +34,15 @@ class TrendingReposVC: UIViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    //MARK:- Do All Frame Update or UI intilzation Work Here
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.navitionSetup()
+        self.tableView?.separatorColor = Constants.tableSepratorColor
         
     }
     
-    //MARk:- LifeCycle
+    //MARK:- LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +55,8 @@ class TrendingReposVC: UIViewController {
         DispatchQueue.main.async {
             self.view.insertSubview(self.errorView, belowSubview: self.tableView!)
         }
-        self.tableView?.showSkeleton()
+        self.tableView?.showAnimatedSkeleton(usingColor: Constants.tableSepratorColor!, animation: SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight), transition: .crossDissolve(0.3))
         self.tableView?.reloadData()
-        /*let errorView = RepoLodingErrorView(frame: self.view.frame)
-        
-        self.view.addSubview(errorView)
-        self.view.bringSubviewToFront(tableView!)*/
-       // self.tableView?.bringSubviewToFront(eeview)
-       // UIView.transition(from: tableView!, to: eeview, duration: 0.2, options: .transitionCrossDissolve, completion: nil)
         
     }
     
@@ -117,7 +114,7 @@ extension TrendingReposVC{
 //MARK :- Helper TO setup View Controller
 func navitionSetup() {
     self.title = "Trending"
-    let barItem = UIBarButtonItem(image: UIImage(named: "menuright"), style: .plain, target: nil, action: nil)
+    let barItem = UIBarButtonItem(image: UIImage(named: "menuright")?.withRenderingMode(.alwaysOriginal), style: .plain, target: nil, action: nil)
     barItem.accessibilityIdentifier = "menuright"
     self.navigationItem.rightBarButtonItem = barItem
 }

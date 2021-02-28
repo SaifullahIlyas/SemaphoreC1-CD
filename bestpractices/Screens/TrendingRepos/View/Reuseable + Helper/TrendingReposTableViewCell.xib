@@ -69,9 +69,9 @@
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="repoName" destination="WEO-dN-2dn" id="gKn-Ja-JYa"/>
-                <outlet property="repoUser" destination="5cT-iz-E61" id="TGu-mO-IyA"/>
+                <outlet property="repoNameLbl" destination="WEO-dN-2dn" id="gKn-Ja-JYa"/>
                 <outlet property="repoUserImg" destination="ZHe-Dg-OK1" id="rH6-cS-CwE"/>
+                <outlet property="repoUserLbl" destination="5cT-iz-E61" id="TGu-mO-IyA"/>
             </connections>
             <point key="canvasLocation" x="207.97101449275365" y="88.727678571428569"/>
         </tableViewCell>

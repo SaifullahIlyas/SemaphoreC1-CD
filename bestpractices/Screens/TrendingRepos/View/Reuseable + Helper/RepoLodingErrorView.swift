@@ -31,6 +31,8 @@ class RepoLodingErrorView: UIView {
         
     }
     override func layoutSubviews() {
+        self.backgroundColor = Constants.backGroundColor!
+        container.backgroundColor = Constants.backGroundColor!
        animateLottie()
         setupRetryButton()
     }
@@ -56,7 +58,8 @@ class RepoLodingErrorView: UIView {
         retryBtn?.backgroundColor = .clear
         retryBtn?.layer.cornerRadius = 5
         retryBtn?.layer.borderWidth = 1
-    retryBtn?.layer.borderColor = Constants.appPrimaryColor.cgColor
+    retryBtn?.layer.borderColor = Constants.appPrimaryColor?.cgColor
+    retryBtn?.backgroundColor = Constants.backGroundColor
     retryBtn?.setTitleColor(Constants.appPrimaryColor, for: .normal)
     }
     /*
