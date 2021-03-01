@@ -35,6 +35,7 @@ class TrendingReposVC: UIViewController {
     }()
     lazy var refreshControl : UIRefreshControl = {
         let control = UIRefreshControl()
+        control.tintColor = Constants.refreshControlColor
         control.addTarget(self, action: #selector(self.actionPullToRefresh), for: .valueChanged)
         return control
     }()
@@ -48,7 +49,7 @@ class TrendingReposVC: UIViewController {
         view.tag = TAGERRORVIEW
         return view
     }()
-   private let TAGERRORVIEW = 11111
+    private let TAGERRORVIEW = 11111
     private let  shimmerAnimationCount = 12
     //MARK:- public intilizer to load view from nib
     public init() {
@@ -77,7 +78,7 @@ class TrendingReposVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if dataource.count.lessThanZero {
+        if dataource.count.isZero {
             self.applySkelton()
         }
         
@@ -126,21 +127,29 @@ extension TrendingReposVC : UITableViewDelegate,SkeletonTableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reposcellClass) as? TrendingReposTableViewCell else {return UITableViewCell()}
-        
+        self.updateCell(cell, for: indexPath)
+        return cell
+    }
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return reposcellClass
+    }
+    func updateCell(_ cell : TrendingReposTableViewCell, for indexPath : IndexPath) {
         //MARK:- Avoid Error while loading shimmer i.e method invoked during shimmer effect
         if !(dataource.isEmpty){
             cell.repoNameLbl?.text = dataource[indexPath.item].reponame
             cell.repoUserLbl?.text = dataource[indexPath.item].username
             if let url = URL(string: dataource[indexPath.item].userImage ?? "") {
                 cell.repoUserImg?.sd_imageTransition = .fade
-                cell.repoUserImg?.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                if #available(iOS 13.0, *) {
+                    cell.repoUserImg?.sd_imageIndicator =  UITraitCollection.current.userInterfaceStyle == .dark ? SDWebImageActivityIndicator.white :
+                        SDWebImageActivityIndicator.gray
+                } else {
+                    // Fallback on earlier versions
+                    cell.repoUserImg?.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                }
                 cell.repoUserImg?.sd_setImage(with: url, completed: nil)
             }
         }
-        return cell
-    }
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return reposcellClass
     }
     
 }

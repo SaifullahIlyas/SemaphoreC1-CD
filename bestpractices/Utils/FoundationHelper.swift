@@ -14,5 +14,8 @@ extension Int {
     var lessThanZero : Bool {
         return self < 0
     }
+    var isZero : Bool {
+        return self == 0
+    }
     
 }

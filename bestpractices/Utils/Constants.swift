@@ -12,6 +12,7 @@ class Constants {
     static let appPrimaryColor = UIColor(named: "primaryColor")
     static let backGroundColor = UIColor(named: "backgroundColor")
     static let tableSepratorColor = UIColor(named: "tablesepratorColor")
+    static let refreshControlColor = UIColor(named: "refreshControlColor")
     static let appidentifier = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String ?? ""
     //MARK:- Utils
     static let baseUrl = "https://api.github.com/"

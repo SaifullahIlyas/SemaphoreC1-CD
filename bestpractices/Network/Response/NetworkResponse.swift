@@ -11,7 +11,7 @@ protocol ParceAble {
     
 }
 
-//MARK:- Default implementation to parse json in to coadeble
+//MARK:- Default implementation to parse json in to codeble
 extension ParceAble {
     func parse<T>(data : Data, Resp : T.Type) throws ->  T where T : Decodable  {
       
