@@ -48,6 +48,7 @@ blocks:
           # and simply install the required version before calling bundle install
           - gem install bundler -v '2.1.4'
           - bundle install --path vendor/bundle
+          - pod install
           - cache store
       jobs:
         - name: Test
